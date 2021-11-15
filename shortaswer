@@ -1,0 +1,19 @@
+Describe how you would accomplish the following:
+ • The size of the URL list could grow infinitely. How might you scale this beyond the memory capacity of the system? 
+    [Pavan]: we can have independent data center installed to keep the sufficient momory as we expect the URL list could go indefinitely with impacting of the production service.
+    
+• Assume that the number of requests will exceed the capacity of a single system, describe how might you solve this, and how might this change if you have to distribute this workload to an additional region, such as Europe. 
+
+    [Pavan]: we can have the service deployed as docker container or other native kubernetes deployment which can have multiple instances running parallely to take the load sharing and have seemless data processing.
+    
+• What are some strategies you might use to update the service with new URLs? Updates may be as much as 5 thousand URLs a day with updates arriving every 10 minutes.
+    [Pavan]: As i explained earlier if we are running datacenter independently we can have corn job to run the new malware URL update in the database with distrubing the application deployment.
+    
+• [On-Call] You’re woken up at 3am, what are some of the things you’ll look for? Does that change anything you’ve done in the app?
+    [Pavan]: as per the priority of the work i have will proceed with that.
+    
+• What are some considerations for the lifecycle of the app?
+    [Pavan]: Design, development, testing/QA check . 
+• You need to deploy a new version of this application. What would you do?
+    [Pavan]: if the system is deployed in on-prim, then we should have aother instance of app to be spawned to have the backup and active app should get updated while back up app takint the requests
+              if the system is deployed on cloud like kubernetes, then we have multiple update stategies set through which we can do the update of an app without service downtime.
